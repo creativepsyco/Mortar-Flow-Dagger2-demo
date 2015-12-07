@@ -149,9 +149,11 @@ public class RootActivity extends Activity implements Flow.Dispatcher {
         Path path = traversal.destination.top();
         setTitle(path.getClass().getSimpleName());
         ActionBar actionBar = getActionBar();
-        boolean canGoBack = traversal.destination.size() > 1;
-        actionBar.setDisplayHomeAsUpEnabled(canGoBack);
-        actionBar.setHomeButtonEnabled(canGoBack);
+        if (actionBar!= null) {
+            boolean canGoBack = traversal.destination.size() > 1;
+            actionBar.setDisplayHomeAsUpEnabled(canGoBack);
+            actionBar.setHomeButtonEnabled(canGoBack);
+        }
 
         pathContainerView.dispatch(traversal, new Flow.TraversalCallback() {
             @Override

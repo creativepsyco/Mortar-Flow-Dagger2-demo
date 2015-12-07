@@ -1,9 +1,9 @@
 package com.lukaspili.mortardemo.ui.view;
 
 import android.content.Context;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.lukaspili.mortardemo.R;
@@ -18,16 +18,16 @@ import butterknife.InjectView;
 /**
  * @author Lukasz Piliszczuk <lukasz.pili@gmail.com>
  */
-public class PostsView extends LinearLayout {
-
-    @Inject
-    protected PostsScreen.Presenter presenter;
+public class PostsView extends DrawerLayout {
 
     @InjectView(R.id.recycler_view)
     public RecyclerView recyclerView;
 
     @InjectView(R.id.progress)
     public ProgressBar progressBar;
+
+    @Inject
+    protected PostsScreen.Presenter presenter;
 
     public PostsView(Context context, AttributeSet attrs) {
         super(context, attrs);
